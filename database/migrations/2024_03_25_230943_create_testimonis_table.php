@@ -13,10 +13,14 @@ return new class extends Migration
     {
         Schema::create('testimonis', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_pemesanan');
+            $table->unsignedBigInteger('id_booking');
+            $table->foreign('id_booking')->references('id')->on('bookings');
+            
             $table->string('testimoni',1000);
             $table->string('rating',10);
-            $table->integer('id_customer');
+            
+            $table->unsignedBigInteger('id_customer');
+            $table->foreign('id_customer')->references('id')->on('customers');
             $table->timestamps();
         });
     }

@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
-            $table->string('id_akun',10);
+            $table->unsignedBigInteger('id_akun');
+            $table->foreign('id_akun')->references('id')->on('users');
+            
             $table->string('nama',100);
             $table->string('alamat',1000);
             $table->string('no_handphone',13);

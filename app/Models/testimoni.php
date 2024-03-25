@@ -10,7 +10,7 @@ class testimoni extends Model
     use HasFactory;
     protected $fillable = [
         'id',
-        'id_pemesanan',
+        'id_booking',
         'testimoni',
         'rating',
         'id_customer',

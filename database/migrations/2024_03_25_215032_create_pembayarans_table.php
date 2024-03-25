@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('pembayarans', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_booking');
+            $table->unsignedBigInteger('id_booking');
+            $table->foreign('id_booking')->references('id')->on('bookings');
+            
             $table->string('metode_pembayaran', 10);
             $table->integer('jumlah_pembayaran');
             $table->string('status_transaksi', 10);
